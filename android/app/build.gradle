@@ -120,6 +120,7 @@ dependencies {
     implementation project(':react-native-vector-icons')
 
     implementation("androidx.biometric:biometric:1.4.0-alpha02")
+    implementation "androidx.bluetooth:bluetooth:1.0.0-alpha02"
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

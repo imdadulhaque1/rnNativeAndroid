@@ -13,6 +13,7 @@ import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
 import com.snowtexcivilsystem.WiFiSettingsPackage
 import com.snowtexcivilsystem.FingerprintPackage
+import com.snowtexcivilsystem.BluetoothSettingsPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -25,8 +26,9 @@ class MainApplication : Application(), ReactApplication {
 
           val packages = PackageList(this).packages.toMutableList()
 
-          packages.add(WiFiSettingsPackage()) // Add your package
-          packages.add(FingerprintPackage())
+          packages.add(WiFiSettingsPackage())    // Add WiFi package
+          packages.add(FingerprintPackage())     // Add Fingerprint Package
+          packages.add(BluetoothSettingsPackage())   // Add Bluetooth Settings Package
           return packages
         }
 

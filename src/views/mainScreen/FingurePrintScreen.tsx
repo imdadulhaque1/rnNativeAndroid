@@ -3,6 +3,7 @@ import {Text, View, StyleSheet, Pressable} from 'react-native';
 import getDataFromFingurePrint from '@utils/handler/getDataFromFingurePrint';
 import {COLORS} from '@utils/COLORS';
 import {isAvailableFingurePrint} from '@utils/handler/isAvailableFingurePrint';
+import NoInternetModal from '@components/modal/NoInternetModal';
 
 const FingurePrintScreen: React.FC = () => {
   const [fingurePrint, setFingurePrint] = useState({
@@ -57,6 +58,7 @@ const FingurePrintScreen: React.FC = () => {
           Authenticate with Fingerprint
         </Text>
       </Pressable>
+      <NoInternetModal />
     </View>
   );
 };
@@ -74,11 +76,6 @@ const styles = StyleSheet.create({
     color: 'green',
     marginBottom: 20,
   },
-  authButton: {
-    marginTop: 10,
-  },
 });
 
 export default FingurePrintScreen;
-
-// Must be called from main thread of fragment host

@@ -1,0 +1,17 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@views/*": ["src/views/*"],
+      "@assets/*": ["src/assets/*"],
+      "@interface/*": ["src/interface/*"],
+      "@restApi/*": ["src/restApi/*"],
+      "@rtk/*": ["src/stateManagements/rtk/*"],
+      "@contextApi/*": ["src/stateManagements/contextApi/*"],
+      "@src/*": ["src/*"]
+    }
+  }
+}

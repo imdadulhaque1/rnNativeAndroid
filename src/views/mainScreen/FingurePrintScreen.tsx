@@ -1,59 +1,43 @@
-import React, {useState} from 'react';
-import {Button, Text, View, StyleSheet, Pressable} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, View, StyleSheet, Pressable} from 'react-native';
 import getDataFromFingurePrint from '@utils/handler/getDataFromFingurePrint';
 import {COLORS} from '@utils/COLORS';
-
-// Type definition for the component's state
-type AuthStatus = string | null; // authStatus can be a string or null
+import {isAvailableFingurePrint} from '@utils/handler/isAvailableFingurePrint';
 
 const FingurePrintScreen: React.FC = () => {
-  const [authStatus, setAuthStatus] = useState<AuthStatus>(null);
+  const [fingurePrint, setFingurePrint] = useState({
+    isAvailable: false,
+    status: '',
+  });
 
-  // Check if fingerprint is available
-  const checkFingerprintAvailability = async () => {
-    try {
-      const available = await getDataFromFingurePrint.isFingerprintAvailable();
-      setAuthStatus(
-        available ? 'Fingerprint available' : 'Fingerprint not available',
-      );
-    } catch (error) {
-      setAuthStatus('Error checking availability');
-    }
-  };
+  useEffect(() => {
+    isAvailableFingurePrint().then(res =>
+      setFingurePrint(prev => ({...prev, isAvailable: res})),
+    );
+  }, []);
 
-  // Authenticate with the fingerprint
   const authenticate = async () => {
     try {
       const result = await getDataFromFingurePrint.authenticate();
-      setAuthStatus(result); // Set result to authStatus
+      setFingurePrint(prev => ({...prev, status: result}));
     } catch (error: any) {
-      setAuthStatus(error.message); // Catch any errors and display the message
+      setFingurePrint(prev => ({...prev, status: error?.message}));
     }
   };
 
-  console.log('authStatus: ', authStatus);
-
   return (
-    <View style={styles.container}>
-      {authStatus && <Text style={styles.statusText}>{authStatus}</Text>}
-
-      <Pressable
-        style={{
-          backgroundColor: COLORS.snowLight90,
-          paddingVertical: 7,
-          paddingHorizontal: 15,
-          borderRadius: 100,
-        }}
-        onPress={checkFingerprintAvailability}>
-        <Text
-          style={{
-            fontFamily: 'WorkSans-Regular',
-            fontSize: 18,
-            color: COLORS.black,
-          }}>
-          Is FingurePrint Available ?
-        </Text>
-      </Pressable>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: fingurePrint?.isAvailable
+            ? COLORS.snowLight90
+            : COLORS.errorLight90,
+        },
+      ]}>
+      {fingurePrint && (
+        <Text style={styles.statusText}>{fingurePrint?.status}</Text>
+      )}
 
       <Pressable
         style={{
@@ -83,7 +67,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
   },
   statusText: {
     fontSize: 18,
@@ -97,3 +80,5 @@ const styles = StyleSheet.create({
 });
 
 export default FingurePrintScreen;
+
+// Must be called from main thread of fragment host

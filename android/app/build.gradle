@@ -122,6 +122,15 @@ dependencies {
     implementation("androidx.biometric:biometric:1.4.0-alpha02")
     implementation "androidx.bluetooth:bluetooth:1.0.0-alpha02"
 
+    // For camera Controlling
+    implementation 'androidx.camera:camera-core:1.4.0'
+    implementation 'androidx.camera:camera-camera2:1.4.0'
+    implementation 'androidx.camera:camera-lifecycle:1.4.0'
+    implementation 'androidx.camera:camera-view:1.4.0'
+    implementation 'com.google.mlkit:barcode-scanning:17.0.4'
+
+
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {

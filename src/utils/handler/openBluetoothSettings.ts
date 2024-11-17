@@ -1,16 +1,41 @@
 import {NativeModules, Platform} from 'react-native';
+const {BluetoothSettings} = NativeModules;
 
 export const openBluetoothSettings = async () => {
-  const {BluetoothSettings} = NativeModules;
-
   try {
     if (Platform.OS === 'android') {
       const result = await BluetoothSettings.enableBluetooth();
-      console.log(result);
+      return result;
     } else {
       console.log('Bluetooth settings can only be opened on Android');
     }
   } catch (error: any) {
-    console.log('Error enabling Bluetooth: ', error.message);
+    return error.message;
+  }
+};
+
+export const isBluetoothEnable = async () => {
+  try {
+    if (Platform.OS === 'android') {
+      const isEnabled = await BluetoothSettings.isBluetoothEnabled();
+      return isEnabled;
+    } else {
+      return false;
+    }
+  } catch (error: any) {
+    return false;
+  }
+};
+
+export const disableBluetooth = async () => {
+  try {
+    if (Platform.OS === 'android') {
+      const disableResult = await BluetoothSettings.disableBluetooth();
+      return disableResult;
+    } else {
+      console.log('Disable Bluetooth only on Android');
+    }
+  } catch (error: any) {
+    console.log('Error disabling Bluetooth: ', error.message);
   }
 };

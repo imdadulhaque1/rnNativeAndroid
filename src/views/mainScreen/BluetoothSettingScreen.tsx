@@ -2,7 +2,6 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {FC} from 'react';
 import {COLORS} from '@utils/COLORS';
 import {openBluetoothSettings} from '@utils/handler/openBluetoothSettings';
-import NoInternetModal from '@components/modal/NoInternetModal';
 
 interface Props {}
 
@@ -20,8 +19,6 @@ const BluetoothSettingScreen: FC<Props> = props => {
         }}>
         <Text style={styles.textStyle}>Open Bluetooth Settings</Text>
       </Pressable>
-
-      <NoInternetModal />
     </View>
   );
 };

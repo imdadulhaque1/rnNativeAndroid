@@ -6,7 +6,7 @@ export const openBluetoothSettings = async () => {
   try {
     if (Platform.OS === 'android') {
       const result = await BluetoothSettings.enableBluetooth();
-      console.log(result); // Logs success or error message
+      console.log(result);
     } else {
       console.log('Bluetooth settings can only be opened on Android');
     }

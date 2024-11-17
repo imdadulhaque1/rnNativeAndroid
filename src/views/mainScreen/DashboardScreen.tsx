@@ -1,11 +1,16 @@
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Pressable} from 'react-native';
 import React, {FC, useState} from 'react';
 import {COLORS} from '@utils/COLORS';
 import NoInternetModal from '@components/modal/NoInternetModal';
+import {openBluetoothSettings} from '@utils/handler/openBluetoothSettings';
 
 const DashboardScreen: FC = () => {
   return (
     <View style={styles.container}>
+      <Pressable onPress={openBluetoothSettings} style={styles.btnStyle}>
+        <Text style={styles.textStyle}>Open Bluetooth Settings</Text>
+      </Pressable>
+
       <NoInternetModal />
     </View>
   );
@@ -25,34 +30,13 @@ const styles = StyleSheet.create({
     fontSize: screenWidth / 28,
     color: COLORS.black,
   },
+  btnStyle: {
+    marginTop: 10,
+    backgroundColor: COLORS.snowLight80,
+    paddingVertical: 7,
+    paddingHorizontal: 15,
+    borderRadius: 100,
+  },
 });
 
 export default DashboardScreen;
-
-interface comViewInterface {
-  title: any;
-  viewWidth?: number;
-  isBorderShow?: boolean;
-  titleColor?: string;
-  borderRightColor?: string;
-}
-
-const ComView: FC<comViewInterface> = React.memo(
-  ({title, viewWidth, isBorderShow, titleColor, borderRightColor}) => {
-    return (
-      <View
-        style={{
-          width: viewWidth,
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRightWidth: isBorderShow ? 0.8 : 0,
-          borderRightColor: borderRightColor,
-          paddingHorizontal: 3,
-        }}>
-        <Text style={[styles.textStyle, {color: titleColor || COLORS.black}]}>
-          {title}
-        </Text>
-      </View>
-    );
-  },
-);

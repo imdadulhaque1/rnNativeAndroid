@@ -15,13 +15,13 @@ const MainStack: FC<Props> = props => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Dashboard" component={DashboardScreen} />
       <Stack.Screen name="FingurePrint" component={FingurePrintScreen} />
       <Stack.Screen
         name="BluetoothSetting"
         component={BluetoothSettingScreen}
       />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Dashboard" component={DashboardScreen} />
     </Stack.Navigator>
   );
 };

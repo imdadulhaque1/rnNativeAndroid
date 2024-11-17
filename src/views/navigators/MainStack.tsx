@@ -5,6 +5,7 @@ import DashboardScreen from '@views/mainScreen/DashboardScreen';
 import LoginScreen from '@views/auth/LoginScreen';
 import FingurePrintScreen from '@views/mainScreen/FingurePrintScreen';
 import BluetoothSettingScreen from '@views/mainScreen/BluetoothSettingScreen';
+import CameraControlScreen from '@views/mainScreen/CameraControlScreen';
 
 interface Props {}
 
@@ -15,6 +16,7 @@ const MainStack: FC<Props> = props => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="CameraControl" component={CameraControlScreen} />
       <Stack.Screen name="Dashboard" component={DashboardScreen} />
       <Stack.Screen name="FingurePrint" component={FingurePrintScreen} />
       <Stack.Screen

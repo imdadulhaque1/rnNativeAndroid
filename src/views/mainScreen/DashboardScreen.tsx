@@ -39,8 +39,6 @@ const DashboardScreen: FC = () => {
     }
   };
 
-  console.log('Phone Status: ', JSON.stringify(status, null, 2));
-
   return (
     <View
       style={[
@@ -51,6 +49,33 @@ const DashboardScreen: FC = () => {
             : COLORS.errorLight95,
         },
       ]}>
+      <View style={{alignItems: 'center'}}>
+        <Text style={[styles.textStyle, {fontFamily: 'WorkSans-SemiBold'}]}>
+          Welcome to Native Android(Kotlin) !
+        </Text>
+        <View
+          style={{
+            marginVertical: 10,
+            padding: 5,
+            borderWidth: 0.5,
+            borderColor: COLORS.snowLight70,
+            borderRadius: 7,
+            backgroundColor: COLORS.snowLight90,
+          }}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <MCIcon name="chevron-right" color={COLORS.black} size={18} />
+            <Text style={[styles.textStyle]}>Opening WiFi Setting</Text>
+          </View>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <MCIcon name="chevron-right" color={COLORS.black} size={18} />
+            <Text style={[styles.textStyle]}>Bluetooth Enable & Disable</Text>
+          </View>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <MCIcon name="chevron-right" color={COLORS.black} size={18} />
+            <Text style={[styles.textStyle]}>Fingerprint Authentication</Text>
+          </View>
+        </View>
+      </View>
       {status && (
         <Text
           style={[

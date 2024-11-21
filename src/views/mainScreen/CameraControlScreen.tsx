@@ -29,20 +29,3 @@ const styles = StyleSheet.create({
 });
 
 export default CameraControlScreen;
-
-/*
-
-
-1. imlements qrCode and barCode scanning module with hole-view
-2. hole-view: is used to show the camera preview with a hole in the center of the screen and scanning code will be showed on the palce of hole-view after scanning
-3. now qrCode and barCode scanning is implemented in react native 
-4. console the scanning code from react native
-5. use the TypeScript
-note: step by step folder wise comlete the coding do it in optimized way
-
-react native and kotlin will be implements in same projects as package name is : com.snowtexcivilsystem
-
-
-
-
-*/

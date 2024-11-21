@@ -1,4 +1,4 @@
-package com.snowtexcivilsystem
+package com.nativeandroid
 
 import android.content.Intent
 import android.provider.Settings

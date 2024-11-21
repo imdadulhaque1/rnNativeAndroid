@@ -1,4 +1,4 @@
-package com.snowtexcivilsystem
+package com.nativeandroid
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager

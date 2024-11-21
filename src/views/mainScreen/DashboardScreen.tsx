@@ -11,8 +11,10 @@ import MCIcon from '@components/icon/MCIcon';
 import {isAvailableFingurePrint} from '@utils/handler/isAvailableFingurePrint';
 import getDataFromFingurePrint from '@utils/handler/getDataFromFingurePrint';
 import ToastMsg from '@utils/handler/ToastMsg';
+import {useNavigation} from '@react-navigation/native';
 
 const DashboardScreen: FC = () => {
+  const navigation = useNavigation();
   const [status, setStatus] = useState({
     isBluetoothEnabled: false,
     haveFingerprintOptions: false,
@@ -128,6 +130,16 @@ const DashboardScreen: FC = () => {
             color={status?.isBluetoothEnabled ? 'green' : COLORS.errorLight85}
             size={25}
           />
+        </Pressable>
+      </View>
+
+      <View style={[styles.btnContainerStyle, {marginTop: 10}]}>
+        <Pressable
+          onPress={() => {
+            navigation.navigate('CustomizedCamera');
+          }}
+          style={styles.btnStyle}>
+          <Text style={styles.textStyle}>BarCode / QrCode</Text>
         </Pressable>
       </View>
 

@@ -1,4 +1,4 @@
-package com.snowtexcivilsystem
+package com.nativeandroid
 
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt

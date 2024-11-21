@@ -1,4 +1,4 @@
-package com.snowtexcivilsystem
+package com.nativeandroid
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -11,9 +11,9 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
-import com.snowtexcivilsystem.WiFiSettingsPackage
-import com.snowtexcivilsystem.FingerprintPackage
-import com.snowtexcivilsystem.BluetoothSettingsPackage
+import com.nativeandroid.WiFiSettingsPackage
+import com.nativeandroid.FingerprintPackage
+import com.nativeandroid.BluetoothSettingsPackage
 
 class MainApplication : Application(), ReactApplication {
 

@@ -1,4 +1,4 @@
-package com.snowtexcivilsystem
+package com.nativeandroid
 
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.ReactPackage

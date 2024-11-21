@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.snowtexcivilsystem"
+    namespace "com.nativeandroid"
     defaultConfig {
-        applicationId "com.snowtexcivilsystem"
+        applicationId "com.nativeandroid"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -127,7 +127,8 @@ dependencies {
     implementation 'androidx.camera:camera-camera2:1.4.0'
     implementation 'androidx.camera:camera-lifecycle:1.4.0'
     implementation 'androidx.camera:camera-view:1.4.0'
-    implementation 'com.google.mlkit:barcode-scanning:17.0.4'
+    // implementation 'com.google.mlkit:barcode-scanning:17.0.4'
+    // implementation 'com.google.mlkit:barcode-scanning:17.2.0'
 
 
 

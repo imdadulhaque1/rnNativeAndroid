@@ -1,4 +1,4 @@
-package com.snowtexcivilsystem
+package com.nativeandroid
 
 import android.content.pm.PackageManager // Add this import
 import android.os.Build
@@ -14,7 +14,7 @@ class MainActivity : ReactActivity(), PermissionAwareActivity {
 
   private var permissionListener: PermissionListener? = null
 
-  /**
+  /**+
    * Returns the name of the main component registered from JavaScript.
    * This is used to schedule rendering of the component.
    */
